@@ -1,0 +1,43 @@
+<script>
+    // 获取当前请求链接
+    let path = window.location.pathname;
+    if (path === "/") {
+        path = "/index";
+    }
+
+    // 获取app元素
+    const app = htmx.find("#app");
+
+    // 路由
+    function route(path) {
+        htmx.ajax("GET", `/{$webpress.route_group}${path}`, app)
+    }
+
+    // 初始化
+    route(path);
+
+    // 监听路由变化
+    window.addEventListener('popstate', (event) => {
+        if (event.state !== null) {
+            route(event.state.path)
+        } else {
+            route(path)
+        }
+    });
+
+    // 监听链接点击
+    window.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.tagName === 'A' && target.href.startsWith(window.location.origin)) {
+            event.preventDefault();
+            const path = target.pathname;
+            history.pushState({ path }, '', path);
+            route(path);
+        }
+    });
+</script>
+<!-- webpress -->
+<script src="/assets/webpress/webpress.js"></script>
+</body>
+
+</html>
