@@ -10,15 +10,31 @@ class WebPress implements MiddlewareInterface
 {
     public function process(Request $request, callable $handler): Response
     {
-        $config = config("webpress");
-        // 配置信息
-        assign("webpress", $config);
-        // seo
-        assign([
-            "title" => $config["title"],
-            "description" => $config["description"],
-            "keywords" => $config["keywords"]
-        ]);
+        $webpress = config("webpress");
+        // 基础配置
+        $base = $webpress["base"];
+        assign("base", $base);
+        // 网站配置
+        $webInfo = $webpress["webInfo"];
+        assign($webInfo);
+        // 导航栏
+        $nav = $webpress["themeConfig"]["nav"];
+        assign("nav", $nav);
+        // 联系信息
+        $contact = $webpress["themeConfig"]["socialLinks"];
+        assign("contact", $contact);
+        // 侧边栏
+        $path = $request->path();
+        if ($path == "/") {
+            $path = "/index";
+        }
+        $data = config("webpress.themeConfig.sidebar");
+        if (!isset($data[str_replace("/" . $webpress["base"]["routeGroup"], "", $path)])) {
+            $sidebar = $data["default"];
+        } else {
+            $sidebar = $data[str_replace("/" . $webpress["base"]["routeGroup"], "", $path)];
+        }
+        assign("sidebar", $sidebar);
         return $handler($request);
     }
 }

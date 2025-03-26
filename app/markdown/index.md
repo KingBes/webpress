@@ -1,21 +1,24 @@
 ---
 layout: home
 name: WebPress
-text: 由WebMan和BunnyUI组建的文档网站
+text: 由 webman 和 bunnyUI 组建的文档网站
 actions:
     - theme: bg-secondary
-      text: 快速开始
-      link: /doc/hello
+      text: 什么是WebPress？
+      link: /docs/guide
     - theme: 
       text: GitHub
       link: https://github.com/KingBes/webpress
+    - theme: 
+      text: GitCode
+      link: https://gitcode.com/Simmah/webpress
 features:
     - icon: 📚
       title: 专注内容
       details: 只需Markdown即可轻松创建美观的文档站点。
     - icon: 🎨
-      title: 享受WebMan无可比拟的体验
-      details: WebMan的强大功能和BunnyUI的美观风格，让你的文档站点更加出色。
+      title: 享受webman无可比拟的体验
+      details: webman的强大功能和bunnyUI的美观风格，让你的文档站点更加出色。
     - icon: 🔧
       title: 自定义配置
       details: 轻松定制你的文档站点，满足你的个性化需求。

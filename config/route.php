@@ -19,14 +19,14 @@ $routeDate = routeDate();
 
 // 首页
 Route::get("/", function () {
-    $index = getTemplate(config("webpress.directory") . "/index.md");
+    $index = getTemplate(config("webpress.base.directory") . "/index.md");
     // 返回首页数据
     return view("index", $index);
 });
 
 // 文档
 foreach ($routeDate as $key => $value) {
-    Route::get("/" . config("webpress.route_group") . $value["path"], function () use ($value) {
+    Route::get("/" . config("webpress.base.routeGroup") . $value["path"], function () use ($value) {
         return view("template/" . $value["data"]["layout"], $value["data"]);
     });
 
@@ -51,4 +51,9 @@ Route::any("/assets/[{path:.+}]", function ($request, $path = '') {
     return response('')->withFile($file);
 });
 
+// 404
+Route::fallback(function () {
+    return view("404");
+});
+// 禁止默认路由
 Route::disableDefaultRoute();

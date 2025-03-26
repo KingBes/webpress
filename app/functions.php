@@ -29,7 +29,7 @@ function assign(string|array $name, mixed $value = null, string $plugin = null)
 function routeDate(): array
 {
     // 入口文件夹
-    $dir = config("webpress.directory");
+    $dir = config("webpress.base.directory");
     // 文件夹后缀
     $suffix = "md";
     // 遍历获取文件夹下的所有md文件

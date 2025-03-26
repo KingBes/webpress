@@ -10,7 +10,7 @@
 
     // 路由
     function route(path) {
-        htmx.ajax("GET", `/{$webpress.route_group}${path}`, app)
+        htmx.ajax("GET", `/{$base.routeGroup}${path}`, app)
     }
 
     // 初始化

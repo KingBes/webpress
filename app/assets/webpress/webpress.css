@@ -1,4 +1,16 @@
+#app {
+    padding-top: 65px;
+}
+
 /* 导航栏 */
+.wp-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
 .wp-nav .bny-nav {
     justify-content: space-between;
 }
@@ -91,6 +103,10 @@
 
 .wp-nav .socialLinks i {
     font-size: 26px;
+}
+
+.wp-nav .socialLinks img {
+    width: 26px;
 }
 
 .wp-nav .theme {
@@ -286,14 +302,24 @@ footer a {
 .wp-default {
     height: calc(100vh - 60px);
     position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .wp-default .bny-nav-lateral {
-    max-width: 100%;
     background-color: unset !important;
     box-shadow: unset !important;
-    height: calc(100vh - 60px);
+    height: 100%;
     overflow: hidden auto;
+    background-color: var(--white);
+    float: right;
 }
 
 .wp-default .bny-nav-lateral .bny-nav-body li .bny-nav-child {
@@ -318,26 +344,119 @@ footer a {
     padding: 1.5rem 0;
 }
 
-.wp-default .content {
-    height: calc(100vh - 60px);
+.wp-default .wp-left {
+    height: 100%;
+
+}
+
+.wp-default .wp-body {
+    padding: 1.5rem;
     overflow: hidden auto;
-    padding: 1.5rem 0;
+    height: 100%;
+}
+
+.wp-default .wp-body .content {
+    max-width: 100%;
+}
+
+.wp-default .wp-body .content p {
+    line-height: 32px;
+    font-size: var(--font-size-16);
+    margin: 16px 0;
 }
 
 .wp-default .bny-toc {
-    width: 100%;
+    width: 200px;
     overflow: hidden auto;
     margin: 1.5rem 0;
     padding-left: 16px;
     border-left: 1px solid var(--muted-40);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
 }
 
-.wp-default .bny-toc * {
+.wp-default .bny-toc p {
     font-size: var(--font-size);
     line-height: 32px;
+    white-space: nowrap;
 }
 
-.wp-default .bny-toc h1 {
+.wp-default .bny-toc>p:hover {
+    cursor: pointer;
+}
+
+.wp-default .bny-toc p:first-child {
     font-size: var(--font-size-16);
     font-weight: 600;
+}
+
+/* 分页 */
+.wp-default .page {
+    padding-top: 24px;
+    padding-bottom: 100px;
+    width: 100%;
+}
+
+.wp-default .page a {
+    padding: 11px 16px 13px;
+    border-radius: 6px;
+    width: 330px;
+    max-width: 100%;
+}
+
+.wp-default .page a span {
+    display: block;
+    line-height: 20px;
+}
+
+.wp-default .page a span:first-child {
+    font-size: 12px;
+}
+
+.wp-default .page a:first-child {
+    float: left;
+    text-align: left;
+}
+
+.wp-default .page a:last-child {
+    float: right;
+    text-align: right;
+}
+
+.wp-default .pe-header {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .wp-default .pe-header {
+        display: flex;
+        position: fixed;
+        top: 65px;
+        left: 0;
+        z-index: 9;
+        padding: 0 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .wp-default .content {
+        padding-top: 10px;
+    }
+}
+
+.bny-page .bny-page-content {
+    height: 100%;
+}
+
+#pe-toc .bny-toc {
+    width: auto;
+    position: unset;
+    margin: 0;
+    padding: 0 10px;
+}
+
+#pe-toc .bny-toc p {
+    font-size: 14px;
 }
