@@ -5,7 +5,7 @@ text: 由 webman 和 bunnyUI 组建的文档网站
 actions:
     - theme: bg-secondary
       text: 什么是WebPress？
-      link: /docs/guide
+      link: /guide/webpress
     - theme: 
       text: GitHub
       link: https://github.com/KingBes/webpress

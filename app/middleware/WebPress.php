@@ -28,11 +28,24 @@ class WebPress implements MiddlewareInterface
         if ($path == "/") {
             $path = "/index";
         }
-        $data = config("webpress.themeConfig.sidebar");
-        if (!isset($data[str_replace("/" . $webpress["base"]["routeGroup"], "", $path)])) {
-            $sidebar = $data["default"];
+        $data = $webpress["themeConfig"]["sidebar"];
+        $key = str_replace("/" . $webpress["base"]["routeGroup"], "", $path);
+        if (!isset($data[$key])) {
+            $keys = array_keys($data);
+            // $key = "default";
+            // 查找keys中前缀是否包含$key的子串
+            foreach ($keys as $k => $v) {
+                if (str_starts_with($key, $v)) {
+                    $key = $v;
+                    break;
+                }
+            }
+            if (!isset($data[$key])) {
+                $key = "default";
+            }
+            $sidebar = $data[$key];
         } else {
-            $sidebar = $data[str_replace("/" . $webpress["base"]["routeGroup"], "", $path)];
+            $sidebar = $data[$key];
         }
         assign("sidebar", $sidebar);
         return $handler($request);

@@ -1,5 +1,6 @@
 #app {
     padding-top: 65px;
+    position: relative;
 }
 
 /* 导航栏 */
@@ -304,8 +305,8 @@ footer a {
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    padding-right: 15px;
-    padding-left: 15px;
+    /* padding-right: 15px;
+    padding-left: 15px; */
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -365,6 +366,15 @@ footer a {
     margin: 16px 0;
 }
 
+.wp-default .wp-body .content li {
+    font-size: var(--font-size-16);
+    line-height: 32px;
+}
+
+.wp-default blockquote p {
+    margin: 0 !important;
+}
+
 .wp-default .bny-toc {
     width: 200px;
     overflow: hidden auto;
@@ -375,6 +385,7 @@ footer a {
     flex-direction: column;
     position: fixed;
     top: 70px;
+    margin-left: 20px;
 }
 
 .wp-default .bny-toc p {

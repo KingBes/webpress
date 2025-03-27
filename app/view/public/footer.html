@@ -10,6 +10,9 @@
 
     // 路由
     function route(path) {
+        // app.innerHTML = `<div class="bny-shield" id="loading">
+        //     <div class="bny-loading" size="large"></div>
+        // </div>`;
         htmx.ajax("GET", `/{$base.routeGroup}${path}`, app)
     }
 

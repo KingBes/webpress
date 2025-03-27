@@ -1,16 +1,6 @@
-# WebPress 
-
-由 webman 和 bunnyUI 组建的文档网站
-
-将 Markdown 变成优雅的文档，只需几分钟
-
 ## 快速开始
 
-- [webman](https://www.workerman.net/doc/webman/) 文档。
-
-- [BunnyUI](https://github.com/workbunny/bunny-ui) 文档。
-
-- [webpress](https://gitcode.com/Simmah/webpress) 文档。
+> 更多细节请参考 webman 文档。
 
 ### 环境要求
 

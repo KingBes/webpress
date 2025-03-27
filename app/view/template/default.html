@@ -1,5 +1,10 @@
+<style>
+    .row {
+        width: 100%;
+    }
+</style>
 <div class="wp-default">
-    <div class="row">
+    <div class="row row-no-gutters">
         <div class="wp-left hidden-xs col-sm-3">
             <nav class="bny-nav-lateral" hx-ext="bny-nav-lateral">
                 <ul class="bny-nav-body">
@@ -8,7 +13,7 @@
             </nav>
         </div>
         <div class="wp-body col-xs-12 col-sm-9">
-            <div class="row">
+            <div class="row row-no-gutters">
                 <div class=" col-xs-12 col-sm-8">
                     <div class="content">
                         {$__CONTENT__|raw}
@@ -31,3 +36,6 @@
         <div id="pe-toc"></div>
     </div>
 </div>
+<script>
+    hljs.highlightAll();
+</script>

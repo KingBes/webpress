@@ -34,11 +34,11 @@ return [
             ],
             [
                 "text" => "指南",
-                "link" => "/docs/guide",
+                "link" => "/guide/webpress",
             ],
             [
                 "text" => "参考",
-                "link" => "/docs/refer",
+                "link" => "/refer/template",
             ]
         ],
         // 侧边栏
@@ -49,17 +49,37 @@ return [
                     "children" => [
                         [
                             "text" => "什么是 WebPress ?",
-                            "link" => "/docs/guide"
+                            "link" => "/guide/webpress"
                         ],
                         [
                             "text" => "快速开始",
-                            "link" => "/docs/demo"
+                            "link" => "/guide/introduction"
+                        ],
+                        [
+                            "text" => "目录结构",
+                            "link" => "/guide/catalogue"
+                        ],
+                        [
+                            "text" => "配置",
+                            "link" => "/guide/configured"
                         ]
                     ]
                 ]
             ],
-            "/docs/other/about" => [
-                ["text" => "其他"]
+            "/refer" => [
+                [
+                    "text" => "参考",
+                    "children" => [
+                        [
+                            "text" => "markdown的使用",
+                            "link" => "/refer/template"
+                        ],
+                        [
+                            "text" => "自定义模板",
+                            "link" => "/refer/custom"
+                        ]
+                    ]
+                ]
             ]
         ],
         // 联系信息
