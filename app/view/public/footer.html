@@ -10,9 +10,6 @@
 
     // 路由
     function route(path) {
-        // app.innerHTML = `<div class="bny-shield" id="loading">
-        //     <div class="bny-loading" size="large"></div>
-        // </div>`;
         htmx.ajax("GET", `/{$base.routeGroup}${path}`, app)
     }
 
@@ -31,11 +28,15 @@
     // 监听链接点击
     window.addEventListener('click', (event) => {
         const target = event.target;
-        if (target.tagName === 'A' && target.href.startsWith(window.location.origin)) {
-            event.preventDefault();
-            const path = target.pathname;
+        const link = target.closest("a");
+        if (link && link.href.startsWith(window.location.origin)) {
+            let path = link.pathname;
+            if (path === "/") {
+                path = "/index"
+            }
             history.pushState({ path }, '', path);
             route(path);
+            event.preventDefault();
         }
     });
 </script>
