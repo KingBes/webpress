@@ -6,9 +6,18 @@
 <div class="wp-default">
     <div class="row row-no-gutters">
         <div class="wp-left hidden-xs col-sm-3">
+            <div class="wp-search-up">
+                <form action="" class="bny-form">
+                    <!-- 后缀 -->
+                    <div class="bny-input-group">
+                        <input type="text" class="bny-input inline" placeholder="Search `Ctrl+k`">
+                        <span class="icon icon-sousuo_2 intersp"></span>
+                    </div>
+                </form>
+            </div>
             <nav class="bny-nav-lateral" hx-ext="bny-nav-lateral">
                 <ul class="bny-nav-body">
-                    {:getSidebar($sidebar)}
+                    {$sidebar|raw}
                 </ul>
             </nav>
         </div>

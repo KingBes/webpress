@@ -403,6 +403,15 @@ footer a {
     font-weight: 600;
 }
 
+.wp-default .wp-search-up {
+    float: right;
+    padding-top: 1.5rem;
+}
+
+.wp-default .bny-nav-lateral .bny-nav-body {
+    padding-top: 0;
+}
+
 /* 分页 */
 .wp-default .page {
     padding-top: 24px;

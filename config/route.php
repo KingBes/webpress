@@ -14,12 +14,17 @@
  */
 
 use Webman\Route;
+use app\common\Tool;
 
-$routeDate = routeDate();
+// 工具箱
+$tool = new Tool();
+
+// 获取路由数据
+$routeDate = $tool->routeDate();
 
 // 首页
-Route::get("/", function () {
-    $index = getTemplate(config("webpress.base.directory") . "/index.md");
+Route::get("/", function () use ($tool) {
+    $index = $tool->getTemplate(config("webpress.base.directory") . "/index.md");
     // 返回首页数据
     return view("index", $index);
 });
@@ -51,9 +56,24 @@ Route::any("/assets/[{path:.+}]", function ($request, $path = '') {
     return response('')->withFile($file);
 });
 
+// 搜索
+Route::get("/" . config("webpress.base.routeGroup") . "/search", function ($request) use ($tool) {
+    $keyword = $request->get("keyword");
+    $data = [];
+    foreach ($keyword as $key => $value) {
+        $file = config("webpress.base.directory") . $value . ".md";
+        $content = file_get_contents($file);
+        $arr = $tool->splitString($content);
+        $data["content"] = $tool->searchMdByKeyword($arr[1], $value);
+        $data["href"] = $value;
+    }
+    return view("search", $data);
+});
+
 // 404
 Route::fallback(function () {
     return view("404");
 });
+
 // 禁止默认路由
 Route::disableDefaultRoute();

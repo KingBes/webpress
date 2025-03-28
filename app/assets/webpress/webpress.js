@@ -122,7 +122,7 @@ htmx.defineExtension('bny-page', {
     }
 })
 
-// 监听屏幕大小
-window.addEventListener('resize', () => {
-    // 
+// 搜索
+document.body.addEventListener('click', function () {
+    
 })
