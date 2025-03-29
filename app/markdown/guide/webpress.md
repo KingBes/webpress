@@ -30,3 +30,9 @@ Webman是一款基于Workerman构建的高性能服务框架，集成了HTTP、W
 文档站点[BunnyUI](https://github.com/workbunny/bunny-ui)
 
 一套 HTMX 开发模式的 Web UI 组件库，使用 AJAX、CSS 过渡、WebSockets 和 服务器推送事件，通过 属性 构建 现代用户界面，结合 简单性 和 超文本的强大功能。
+
+## 如果觉得好用，请鼓励一下！
+
+![微信](/assets/wechat.png)
+
+![支付宝](/assets/zhifubao.jpg)
