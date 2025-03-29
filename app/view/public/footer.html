@@ -26,7 +26,7 @@
     });
 
     // 监听链接点击
-    window.addEventListener('click', (event) => {
+    const handleLinkClick = (event) => {
         const target = event.target;
         const link = target.closest("a");
         if (link && link.href.startsWith(window.location.origin)) {
@@ -38,7 +38,39 @@
             route(path);
             event.preventDefault();
         }
-    });
+    }
+    window.addEventListener('click', handleLinkClick);
+
+    // 搜索
+    document.body.addEventListener('click', function (e) {
+        const target = e.target;
+        const path = window.location.pathname
+        if (target.closest(".on-search")) {
+            bunny.page({
+                title: false,
+                width: "560px",
+                height: "350px",
+                shade: true,
+                content:
+                    `<div class="bny-search">
+                <div class="bny-form">
+                    <div class="bny-input-group">
+                        <span class="icon icon-sousuo_2 intersp"></span>
+                        <input type="search" name="keyword" hx-get="/{$base.routeGroup}/search?path=${path}" 
+                        hx-trigger="input changed delay:500ms, search" 
+                        hx-target="#search-results" 
+                        class="bny-input" placeholder="search markdown">
+                    </div>
+                </div>
+                <div id="search-results"></div>
+            </div>`
+            })
+            const search = htmx.find(".bny-layer")
+            htmx.process(search);
+            htmx.find("input[name=keyword]").focus();
+            search.addEventListener('click', handleLinkClick);
+        }
+    })
 </script>
 <!-- webpress -->
 <script src="/assets/webpress/webpress.js"></script>

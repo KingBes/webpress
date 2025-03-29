@@ -52,24 +52,27 @@ function buildToc(target) {
 htmx.on(document.body, "click", function (e) {
     const target = e.target
     // 目录滚动
-    if (target.classList.contains("bny-toc-btn")) {
+    if (target.closest(".bny-toc-btn")) {
         // console.log(target)
         const targetId = target.getAttribute("bny-target")
         const targetElement = document.getElementById(targetId)
         targetElement.scrollIntoView({ behavior: "smooth" })
     }
     // 菜单展开
-    if (target.classList.contains("pe-menu")) {
-        const content = htmx.find(".wp-left")
+    if (target.closest(".pe-menu")) {
+        const content = htmx.find(".wp-left>.bny-nav-lateral")
         bunny.page({
             title: false,
-            content: `${content.innerHTML}`,
+            content: `<nav class="bny-nav-lateral" hx-ext="bny-nav-lateral">${content.innerHTML}</nav>`,
             width: "220px",
             height: "100%",
             offset: "left",
             shade: true,
             anim: 1
         })
+        const layer = htmx.find(".bny-layer")
+        htmx.process(layer);
+        layer.addEventListener('click', handleLinkClick);
     }
 })
 
@@ -120,9 +123,4 @@ htmx.defineExtension('bny-page', {
             page(evt.target)
         }
     }
-})
-
-// 搜索
-document.body.addEventListener('click', function () {
-    
 })

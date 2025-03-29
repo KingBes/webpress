@@ -59,15 +59,23 @@ Route::any("/assets/[{path:.+}]", function ($request, $path = '') {
 // 搜索
 Route::get("/" . config("webpress.base.routeGroup") . "/search", function ($request) use ($tool) {
     $keyword = $request->get("keyword");
+    $path = $request->get("path");
+    $arr = $tool->extractLinks($tool->getSidebarData($path, config("webpress.themeConfig.sidebar")));
     $data = [];
-    foreach ($keyword as $key => $value) {
-        $file = config("webpress.base.directory") . $value . ".md";
-        $content = file_get_contents($file);
-        $arr = $tool->splitString($content);
-        $data["content"] = $tool->searchMdByKeyword($arr[1], $value);
-        $data["href"] = $value;
+    $prefix = config("webpress.base.directory");
+    foreach ($arr as $key => $value) {
+        $file_content = file_get_contents($prefix . $value["link"] . ".md");
+        $md = $tool->splitString($file_content);
+        $content = $tool->searchMdByKeyword($md[1], $keyword);
+        if ($content != "") {
+            $data[] = [
+                "text" => $value["text"],
+                "content" => $content,
+                "link" => $value["link"]
+            ];
+        }
     }
-    return view("search", $data);
+    return view("search", ["data" => $data]);
 });
 
 // 404

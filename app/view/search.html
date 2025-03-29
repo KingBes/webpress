@@ -1,12 +1,10 @@
-<ul class="search-list">
-    <li class="search-list-item">
-        <a href="">
-            <div class="search-list-item-title">
-                标题
-            </div>
-            <div class="search-list-item-text">
-                摘要
-            </div>
+<div class="bny-search-result">
+    {foreach $data as $k=>$v}
+    <div class="bny-search-item">
+        <a href="{$v.link}">
+            <h3>{$v.text}</h3>
+            <p>{$v.content}</p>
         </a>
-    </li>
-</ul>
+    </div>
+    {/foreach}
+</div>
