@@ -33,6 +33,7 @@ Webman是一款基于Workerman构建的高性能服务框架，集成了HTTP、W
 
 ## 如果觉得好用，请鼓励一下！
 
-![微信](/assets/wechat.png)
-
-![支付宝](/assets/zhifubao.jpg)
+<center class="half">
+<img src="/assets/wechat.png" width="200"/>
+<img src="/assets/zhifubao.jpg" width="200"/>
+</center>
