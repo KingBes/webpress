@@ -10,6 +10,8 @@ webpress /
 |   ├── middleware  # 中间件目录
 |   ├── view  # 模板文件目录
 |   ├── process  # process目录
+|   ├── common  # 公共目录
+|   |   └─ Tool.php  # 工具类文件
 |   └─ functions.php  # 公共函数文件
 |
 |── config  # 配置目录
