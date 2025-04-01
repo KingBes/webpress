@@ -61,7 +61,7 @@ htmx.on(document.body, "click", function (e) {
     // 菜单展开
     if (target.closest(".pe-menu")) {
         const content = htmx.find(".wp-left>.bny-nav-lateral")
-        bunny.page({
+        const layer = bunny.page({
             title: false,
             content: `<nav class="bny-nav-lateral" hx-ext="bny-nav-lateral">${content.innerHTML}</nav>`,
             width: "220px",
@@ -70,8 +70,6 @@ htmx.on(document.body, "click", function (e) {
             shade: true,
             anim: 1
         })
-        const layer = htmx.find(".bny-layer")
-        htmx.process(layer);
         layer.addEventListener('click', handleLinkClick);
     }
 })
