@@ -363,10 +363,19 @@ footer a {
     max-width: 100%;
 }
 
+.wp-default .wp-body .content h1,
+.wp-default .wp-body .content h2,
+.wp-default .wp-body .content h3,
+.wp-default .wp-body .content h4,
+.wp-default .wp-body .content h5,
+.wp-default .wp-body .content h6 {
+    margin-top: 18px;
+}
+
 .wp-default .wp-body .content p {
     line-height: 32px;
     font-size: var(--font-size-16);
-    margin: 16px 0;
+    /* margin: 16px 0; */
 }
 
 .wp-default .wp-body .content li {
@@ -389,6 +398,8 @@ footer a {
     position: fixed;
     top: 70px;
     margin-left: 20px;
+    min-width: min-content;
+    max-height: 300px;
 }
 
 .wp-default .bny-toc p {
