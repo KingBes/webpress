@@ -388,7 +388,7 @@ footer a {
 }
 
 .wp-default .bny-toc {
-    width: 200px;
+    width: 250px;
     overflow: hidden auto;
     margin: 1.5rem 0;
     padding-left: 16px;
@@ -399,7 +399,6 @@ footer a {
     top: 70px;
     margin-left: 20px;
     min-width: min-content;
-    max-height: 300px;
 }
 
 .wp-default .bny-toc p {
