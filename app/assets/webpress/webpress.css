@@ -351,6 +351,8 @@ footer a {
     flex-direction: column;
     align-items: flex-end;
     padding-right: 20px;
+    height: 100%;
+    overflow: hidden;
 }
 
 .wp-default .wp-body {
@@ -423,6 +425,7 @@ footer a {
 
 .wp-default .bny-nav-lateral .bny-nav-body {
     padding-top: 0;
+    overflow: unset;
 }
 
 /* 分页 */
